@@ -1,2 +1,3 @@
 # gamble
-kumar
+
+bu bir kumar.
