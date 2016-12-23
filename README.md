@@ -1,3 +1,0 @@
-# gamble
-
-bu bir kumar.
