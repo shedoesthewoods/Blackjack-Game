@@ -1,3 +1,3 @@
 #
 
-blackjack ve fal bakma
+blackjack game
