@@ -1,3 +1,3 @@
-#
+# Blackjack
 
-blackjack game
+A simple blackjack game without GUI.
