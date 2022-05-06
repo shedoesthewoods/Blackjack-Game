@@ -8,9 +8,9 @@ Created on Wed May  4 23:14:16 2022
 from random import choice
 
 card_val = {"As":10, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, 
-        "8":8, "9":9, "10":10, "Bacak":10, "Kız":10, "Papaz":10}
+        "8":8, "9":9, "10":10, "Jack":10, "Queen":10, "King":10}
 
-symbol = ["Kupa", "Karo", "Maça", "Sinek"]
+symbol = ["Heart", "Diamond", "Spade", "Club"]
 
 
 def game():
