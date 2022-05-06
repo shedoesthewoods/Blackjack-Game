@@ -7,7 +7,7 @@ Created on Wed May  4 23:14:16 2022
 
 from random import choice
 
-card_val = {"As":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, 
+card_val = {"As":10, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, 
         "8":8, "9":9, "10":10, "Bacak":10, "Kız":10, "Papaz":10}
 
 symbol = ["Kupa", "Karo", "Maça", "Sinek"]
@@ -15,9 +15,10 @@ symbol = ["Kupa", "Karo", "Maça", "Sinek"]
 
 def game():
     show_cards(1)
+    
     card_or_pass = "c"
     while cards_sum(gamer_cards) < 21 and card_or_pass == "c":
-        card_or_pass = input("Card or Pass (c/p)")
+        card_or_pass = input("Card or Pass (c/p): ")
         if card_or_pass.lower() == "c":
             add_new_card(gamer_cards)
             show_cards(2)
@@ -30,9 +31,9 @@ def game():
         print("YOU LOSE :(")
         return
     elif cards_sum(gamer_cards) == 21:
-        print("Blackjack! It's croupier's turn now", end="\n")
+        print("\nBlackjack! It's croupier's turn now.", end="\n")
     else:
-        print("Croupier's turn", end="\n")
+        print("\nCroupier's turn.", end="\n")
     
     # show croupier's cards
     show_cards(3)
@@ -42,8 +43,6 @@ def game():
         show_cards(3)
     
     decide_winner()
-    
-    
 
 def create_deck():
     deck = []
@@ -96,19 +95,35 @@ def add_new_card(person_deck):
     person_deck.append(card)
 
 def decide_winner():
-    if cards_sum(croupier_cards) > 21:
+    gamer_result = cards_sum(gamer_cards)
+    croupier_result = cards_sum(croupier_cards)
+    if croupier_result > 21:
         print("YOU WIN!")
-    elif cards_sum(croupier_cards) == 21:
+    elif croupier_result == 21:
         print("Blackjack!", end=" ")
-        if cards_sum(gamer_cards) == 21:
+        if gamer_result == 21:
             print("It's a draw.")
         else:
             print("Croupier wins.")
     else:
-        print("You win.")
+        if croupier_result < gamer_result:
+            print("You win.")
+        elif croupier_result == gamer_result:
+            print("It's a draw.")
+        else:
+            print("You lose.")
 
-deck = create_deck()
-croupier_cards = init_cards()
-gamer_cards = init_cards()
 
-game()
+play_game = "y"
+while play_game == "y":
+    play_game = input("\nYou want to play a game? (y/n): ")
+    if play_game == "y":
+        deck = create_deck()
+        croupier_cards = init_cards()
+        gamer_cards = init_cards()
+        game()
+    elif play_game == "n":
+        break
+    else:
+        play_game = "y"
+        print("y or n?")
