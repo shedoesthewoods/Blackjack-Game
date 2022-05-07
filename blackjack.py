@@ -6,8 +6,9 @@ Created on Wed May  4 23:14:16 2022
 """
 
 from random import choice
+import re
 
-card_val = {"As":10, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, 
+card_val = {"Ace":1, "2":2, "3":3, "4":4, "5":5, "6":6, "7":7, 
         "8":8, "9":9, "10":10, "Jack":10, "Queen":10, "King":10}
 
 symbol = ["Heart", "Diamond", "Spade", "Club"]
